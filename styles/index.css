@@ -1,0 +1,546 @@
+/* =========== Estilos Generales y Variables =========== */
+:root {
+    --primary-color: #f59c31; /* Azul vibrante */
+    --background-color: #1a1a2e; /* Fondo oscuro principal */
+    --card-color: #16213e; /* Un azul más oscuro para tarjetas (lo usaremos después) */
+    --text-color: #e0e0e0; /* Texto gris claro */
+    --white-color: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Puedes cambiar la fuente si lo deseas */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* =========== Barra de Navegación =========== */
+.navbar {
+    display: flex; /* Activa Flexbox para alinear elementos */
+    justify-content: space-between; /* Espacia los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 20px 50px; /* Espaciado interno (arriba/abajo y a los lados) */
+}
+
+.logo a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Pone los enlaces en línea */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px; /* Espacio entre cada enlace */
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s; /* Transición suave al pasar el mouse */
+}
+
+.nav-links a:hover {
+    color: var(--primary-color); /* Cambia de color al pasar el mouse */
+}
+
+/* =========== Botón de Llamada a la Acción (CTA) =========== */
+.cta-button {
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: 5px; /* Bordes redondeados */
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ffffff; /* Un azul un poco más oscuro al pasar el mouse */
+    color: #f59c31;
+}
+
+/* =========== Sección Principal (Hero) =========== */
+.hero-section {
+    text-align: center; /* Centra todo el texto */
+    padding: 80px 20px; /* Espaciado interno amplio */
+}
+
+.hero-section h1 {
+    font-size: 40px; /* Tamaño grande para el título principal */
+    color: var(--white-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-section p {
+    font-size: 18px;
+    max-width: 600px; /* Limita el ancho del párrafo para que sea más legible */
+    margin: 0 auto 30px; /* Centra el párrafo horizontalmente */
+    line-height: 1.6; /* Espacio entre líneas */
+}
+
+.hero-buttons .secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid var(--primary-color);
+}
+
+.hero-buttons .secondary:hover {
+    background-color: var(--primary-color);
+}
+
+.hero-buttons a {
+    margin: 0 10px; /* Espacio entre los dos botones */
+}
+
+/* =========== Sección de Estadísticas =========== */
+.stats-section {
+    background-color: var(--primary-color); /* Usamos la variable de color azul que definimos antes */
+    color: var(--white-color); /* El texto será blanco */
+    display: flex; /* Usamos Flexbox para alinear las columnas */
+    justify-content: space-around; /* Distribuye el espacio equitativamente entre los items */
+    padding: 40px 20px; /* Espaciado interno */
+    text-align: center;
+}
+
+.stat-item h2 {
+    font-size: 42px; /* Tamaño grande para el número */
+    margin: 0; /* Quitamos el margen por defecto del h2 */
+}
+
+.stat-item p {
+    font-size: 16px;
+    margin: 5px 0 0 0; /* Pequeño margen superior */
+    color: #cce0ff; /* Un blanco un poco menos brillante para el texto secundario */
+}
+
+/* =========== Sección de Servicios =========== */
+main {
+    /* Este contenedor nos ayudará a centrar el contenido */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido en la página */
+    padding: 0 50px; /* Añade espacio a los lados */
+}
+
+.services-section {
+    padding: 80px 0; /* Espaciado vertical */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px; /* Espacio entre el título y la parrilla */
+}
+
+.section-header .pre-title {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 1px; /* Espacio entre letras */
+}
+
+.section-header h2 {
+    font-size: 38px;
+    color: var(--white-color);
+    margin: 10px 0 15px 0;
+}
+
+.section-header p {
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Parrilla de Servicios (CSS Grid) --- */
+.services-grid {
+    display: grid;
+    /* Crea 3 columnas de igual tamaño (1fr = una fracción del espacio) */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Espacio de 30px entre cada tarjeta */
+}
+
+/* --- Tarjeta de Servicio Individual --- */
+.service-card {
+    background-color: var(--card-color); /* Usamos el color de tarjeta que definimos */
+    padding: 40px 30px;
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #2a2a4a; /* Un borde sutil */
+    transition: transform 0.3s, border-color 0.3s; /* Transición suave */
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta un poco */
+    border-color: var(--primary-color); /* Cambia el color del borde al azul principal */
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Lo convierte en un círculo perfecto */
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: var(--white-color);
+    font-size: 22px;
+    margin: 0 0 10px 0;
+}
+
+.service-card p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- HACIENDO LA WEB RESPONSIVA (Adaptable) --- */
+/* Para pantallas más pequeñas (tablets), cambiamos a 2 columnas */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Para pantallas muy pequeñas (móviles), cambiamos a 1 columna */
+@media (max-width: 768px) {
+    main {
+        padding: 0 20px; /* Menos espacio a los lados en móvil */
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========== Sección de Característica Principal =========== */
+.feature-section {
+    padding: 80px 0;
+}
+
+.feature-container {
+    display: flex; /* ¡La magia de Flexbox! */
+    align-items: center; /* Centra verticalmente el contenido de ambas columnas */
+    gap: 60px; /* Espacio entre la imagen y el texto */
+}
+
+/* --- Columna de la Izquierda: Imagen --- */
+.feature-image {
+    flex: 1; /* Hace que esta columna ocupe la mitad del espacio */
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #2a2a4a;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+/* --- Columna de la Derecha: Contenido --- */
+.feature-content {
+    flex: 1; /* Hace que esta columna ocupe la otra mitad */
+}
+
+.feature-content h2 {
+    font-size: 38px;
+    color: var(--white-color);
+    margin: 10px 0 15px 0;
+}
+
+.feature-list {
+    list-style: none; /* Quitamos los puntos de la lista */
+    padding: 0;
+    margin: 30px 0;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.feature-list svg {
+    color: var(--primary-color); /* Le damos el color azul a nuestro ícono SVG */
+    margin-right: 15px; /* Espacio entre el ícono y el texto */
+    /* Usamos 'flex-shrink: 0' para que el ícono no se encoja si el texto es largo */
+    flex-shrink: 0;
+}
+
+/* --- Actualización para Responsividad --- */
+/* Añade esto dentro de tu media query para tablets */
+@media (max-width: 992px) {
+    .feature-container {
+        flex-direction: column; /* Apila las columnas una sobre otra */
+    }
+}
+
+/* =========== Sección de Característica Principal =========== */
+.feature-section {
+    padding: 80px 0;
+}
+
+.feature-container {
+    display: flex; /* ¡La magia de Flexbox! */
+    align-items: center; /* Centra verticalmente el contenido de ambas columnas */
+    gap: 60px; /* Espacio entre la imagen y el texto */
+}
+
+/* --- Columna de la Izquierda: Imagen --- */
+.feature-image {
+    flex: 1; /* Hace que esta columna ocupe la mitad del espacio */
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #2a2a4a;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+/* --- Columna de la Derecha: Contenido --- */
+.feature-content {
+    flex: 1; /* Hace que esta columna ocupe la otra mitad */
+}
+
+.feature-content h2 {
+    font-size: 38px;
+    color: var(--white-color);
+    margin: 10px 0 15px 0;
+}
+
+.feature-list {
+    list-style: none; /* Quitamos los puntos de la lista */
+    padding: 0;
+    margin: 30px 0;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.feature-list svg {
+    color: var(--primary-color); /* Le damos el color azul a nuestro ícono SVG */
+    margin-right: 15px; /* Espacio entre el ícono y el texto */
+    /* Usamos 'flex-shrink: 0' para que el ícono no se encoja si el texto es largo */
+    flex-shrink: 0;
+}
+
+/* --- Actualización para Responsividad --- */
+/* Añade esto dentro de tu media query para tablets */
+@media (max-width: 992px) {
+    .feature-container {
+        flex-direction: column; /* Apila las columnas una sobre otra */
+    }
+}
+
+/* =========== Sección de Proceso =========== */
+.process-section {
+    padding: 80px 0;
+    /* La imagen muestra un separador sutil arriba. Podemos usar un borde. */
+    border-top: 1px solid #2a2a4a; 
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+    gap: 30px;
+}
+
+.process-card {
+    text-align: center; /* Centramos todo el contenido de la tarjeta */
+    padding: 20px;
+}
+
+.process-number {
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--primary-color); /* Borde con nuestro color azul */
+    border-radius: 50%; /* ¡El truco para hacer un círculo perfecto! */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px; /* Centramos el círculo y le damos espacio abajo */
+    color: var(--white-color);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.process-card h3 {
+    color: var(--white-color);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* --- Actualización para Responsividad --- */
+/* Modifica tu media query para tablets y móviles así */
+@media (max-width: 992px) {
+    /* ... reglas existentes ... */
+    .process-grid {
+        grid-template-columns: 1fr; /* En tablets, apilamos los 3 items */
+    }
+}
+
+/* =========== Sección de Portafolio =========== */
+.portfolio-section {
+    padding: 80px 0;
+}
+
+.portfolio-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* --- Columna de la Izquierda: Parrilla de Imágenes --- */
+.portfolio-grid {
+    flex: 1.2; /* Le damos un poco más de espacio que al texto */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+    gap: 20px; /* Espacio entre las imágenes */
+}
+
+.portfolio-item {
+    background-color: #2a2a4a;
+    border-radius: 8px;
+    /* Esta es una propiedad moderna para mantener la relación de aspecto cuadrada */
+    aspect-ratio: 1 / 1; 
+    transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05); /* Agranda un poco el item al pasar el mouse */
+}
+
+
+/* --- Columna de la Derecha: Contenido --- */
+.portfolio-content {
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+.portfolio-content h2 {
+    font-size: 38px;
+    color: var(--white-color);
+    margin: 10px 0 15px 0;
+}
+
+/* --- Actualización para Responsividad --- */
+/* Añade esto dentro de tu media query para tablets */
+@media (max-width: 992px) {
+    /* ... reglas existentes ... */
+    .portfolio-container {
+        flex-direction: column-reverse; /* Apila las columnas */
+    }
+}
+
+/* =========== Pie de Página (Footer) =========== */
+footer {
+    background-color: var(--card-color); /* Un fondo oscuro pero diferente al principal */
+    color: var(--text-color);
+    padding: 60px 50px 20px 50px;
+    border-top: 1px solid #2a2a4a; 
+}
+
+.footer-content {
+    display: grid;
+    /* 4 columnas: la primera más ancha (2fr) y las otras 3 iguales (1fr) */
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-description {
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.social-icons a {
+    color: var(--white-color);
+    background-color: #2a2a4a;
+    text-decoration: none;
+    display: inline-flex; /* Permite usar propiedades de flex en un elemento en línea */
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+}
+
+.footer-column h4 {
+    color: var(--white-color);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #2a2a4a;
+    font-size: 14px;
+    color: #888;
+}
+
+/* --- Actualización Final de Responsividad --- */
+@media (max-width: 992px) {
+    /* ... reglas existentes ... */
+    .footer-content {
+        /* En tablet, 2 columnas */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... reglas existentes ... */
+    footer {
+        padding: 40px 20px;
+    }
+    .footer-content {
+        /* En móvil, 1 columna */
+        grid-template-columns: 1fr;
+    }
+}
